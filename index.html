@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/reset.css">
+  <script src="./js/jquery.min.js"></script>
+  <link rel="shortcut icon" href="./images/point.jpg" type="image/x-icon">
+  <title>최진식 포트폴리오</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+    :root{
+      font-weight: 700;
+      font-size: 12px;
+      color: #666;
+      /* cursor: url(./images/mouse.png),auto; */
+    }
+
+    .wrap{
+      overflow: hidden;
+    }
+
+    .container{
+      position: relative;
+      margin-bottom: 150px;
+    }
+
+    .container .img-box1,.container .img-box2{
+      display: none;
+    }
+
+
+    h1{
+      position: absolute;
+      top: 40%;
+      right: 30%;
+      color: #fff;
+      opacity: 0.7;
+      z-index: 1000;
+      font-weight: 900;
+      font-size: 50px;
+      font-family: 'BebasNeue-Regular',sans-serif;
+    }
+
+    .container p{
+      position: absolute;
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px;
+      top: 10%;
+    }
+
+    .container .top1{
+      margin-left: 10%;
+    }
+
+    .container .top2{
+      right: 0;
+      margin-right: 10%;
+    }
+
+    nav ul{
+      display: flex;
+      justify-content: space-around;
+      margin: 30px;
+      height: 20px;
+    }
+
+    nav ul li{
+      margin-right: 5px;
+    }
+
+    nav ul li:hover{
+      border-bottom: 2px solid lightsalmon;
+    }
+
+    h2{
+      margin-left: 30px;
+      margin-bottom: 50px;
+      font-weight: 900;
+      font-size: 50px;
+      color: lightblue;
+      padding: 0;
+    }
+
+    .back{
+      position: absolute;
+      width: 60%;
+      height: 350px;
+      background: rgb(218, 242, 250);
+      opacity: 0.7;
+      z-index: 999;
+    }
+
+    .about{
+      margin-bottom: 400px;
+    }
+
+    .about img{
+      display: none;
+    }
+
+    .here{
+      position: absolute;
+      z-index: 1000;
+      font-size: 20px;
+      margin-left: 170px;
+      color: lightpink;
+    }
+
+    .day{
+      font-size: 20px;
+    }
+
+    .subp{
+      position: absolute;
+      left: 50%;
+      float: right;
+      font-size: 14px;
+      z-index: 1000;
+    }
+
+    .hash{
+      position: absolute;
+      margin-left: 50%;
+      padding-top: 200px;
+      z-index: 1000;
+    }
+
+    .hash li{
+      display: inline-block;
+      margin-right: 5px;
+      margin-bottom: 5px;
+      font-size: 16px;
+    }
+
+    .hash li:hover{
+      background: lightpink;
+      color: #fff;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    .cando{
+      padding: 50px;
+      margin-bottom: 150px;
+    }
+
+    .cando h3{
+      padding-top: 30px;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .cando img{
+      margin-bottom: 15px;
+    }
+
+    .graph{
+      height: 40px;
+      background: #ccc;
+      border-radius: 40px;
+    }
+
+    .graph .html{
+      display: block;
+      width: 85%;
+      height: 40px;
+      padding: 0 10px;
+      line-height: 40px;
+      text-align: right;
+      background: lightpink;
+      border-radius: 40px;
+      box-sizing: border-box;
+      color: #fff;
+      animation: html 2s 1;
+    }
+
+    .graph .css{
+      display: block;
+      width: 90%;
+      height: 40px;
+      padding: 0 10px;
+      line-height: 40px;
+      text-align: right;
+      background: lightgreen;
+      border-radius: 40px;
+      box-sizing: border-box;
+      color: #fff;
+      animation: css 2s 1;
+    }
+
+    .graph .java{
+      display: block;
+      width: 80%;
+      height: 40px;
+      padding: 0 10px;
+      line-height: 40px;
+      text-align: right;
+      background: lightblue;
+      border-radius: 40px;
+      box-sizing: border-box;
+      color: #fff;
+      animation: java 2s 1;
+    }
+
+    .port{
+    position: relative;
+    }
+
+    .port img{
+      width: 300px;
+      height: 350px;
+    }
+
+    .port .img-hana{
+      position: absolute;
+      z-index: 1000;
+    }
+
+    .port .img-tour{
+      position: absolute;
+      right: 15px;
+      z-index: 999;
+    }
+
+    .port .img-tour:hover{
+      z-index: 1001;
+    }
+
+    .port .btn-box .hana{
+      position: absolute;
+      top: 500px;
+      left: 0;
+      padding: 10px;
+      margin-left: 10px;
+      background-color: #fff;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .port .btn-box .tour{
+      position: absolute;
+      top: 500px;
+      right: 0;
+      padding: 10px;
+      margin-right: 10px;
+      background-color: #fff;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .port .txt{
+      position: absolute;
+      z-index: 9999;
+      top: 600px;
+    }
+
+    .port .txt1{
+      font-weight: 900;
+      font-size: 20px;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .port .txt2{
+      text-align: center;
+    }
+
+    .contact{
+      padding-top: 750px;
+      margin-bottom: 100px;
+    }
+
+    .contact .last-img{
+      width: 400px;
+      width: 90%;
+      margin: 0 auto;
+    }
+
+    .contact .text{
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .contact strong{
+      font-weight: 700;
+      font-size: 1.2em;
+      color: chocolate;
+    }
+
+    .contact p{
+      margin-top: 10px;
+      font-size: 16px;
+      color: black;
+    }
+
+    .footer {
+      display: flex;
+      width: 100%;
+      height: 100px;
+      background: lightslategray;
+      color: #fff;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .footer address{
+      font-style: normal;
+    }
+
+    .footer p{
+      text-align: center;
+    }
+
+
+    /* 태블릿버전 */
+    @media (min-width:768px) {
+      h2{
+        text-align: center;
+      }
+
+      .container .img-box img{
+        display: none;
+      }
+
+      .container .img-box1{
+        display: block;
+        width: 100%;
+        /* height: 50%; */
+      }
+
+      .container h1{
+        left: 20%;
+        font-size: 70px;
+      }
+
+      .about .abh2{
+      text-align: left;
+    }
+
+      .cando img{
+      width: 50%;
+      margin: 25%;
+    }
+
+    .port .img-hana{
+      position: absolute;
+      left: 25%;
+      z-index: 1000;
+    }
+
+    .port .img-tour{
+      position: absolute;
+      right: 20%;
+      top: 300%;
+      z-index: 999;
+    }
+
+    .port .btn-box .hana{
+      position: absolute;
+      top: 900%;
+      left: 25%;
+      padding: 10px;
+      margin-left: 10px;
+      background-color: #fff;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .port .btn-box .tour{
+      position: absolute;
+      top: 900%;
+      right: 25%;
+      padding: 10px;
+      margin-right: 10px;
+      background-color: #fff;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .port .txt{
+      position: absolute;
+      z-index: 9999;
+      top: 1050%;
+      left: 10%;
+      margin: 0 120px;
+    }
+
+    .port .txt1{
+      font-weight: 900;
+      font-size: 20px;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+  }
+
+  /* 데스크탑 버전 */
+  @media (min-width:1280px) {
+    .wrap{
+      margin: 0 50px;
+    }
+
+    h1{
+      color: lightskyblue;
+    }
+
+    .container .img-box1{
+      display: none;
+    }
+
+    .container .img-box2{
+      display: block;
+      height: 40%;
+    }
+    
+
+    .container h1{
+      font-size: 100px;
+      left: 5%;
+      top: 30%;
+    }
+
+    /* .container .top2{
+      right: 50%;
+    } */
+
+    .about .abh2{
+      text-align: left;
+    }
+
+    .about img{
+      position: absolute;
+      display: block;
+      width: 300px;
+      height: 350px;
+      z-index: 99999;
+      left: 25%;
+      border-radius: 70%;
+    }
+
+    .cando img{
+      margin: 0 27%;
+    }
+
+    .port .img-hana{
+      position: absolute;
+      left: 25%;
+      top: 150px;
+      z-index: 1000;
+    }
+
+    .port .img-tour{
+      position: absolute;
+      right: 20%;
+      top: 150px;
+      z-index: 999;
+    }
+
+    .port .btn-box .hana{
+      position: absolute;
+      top: 900%;
+      left: 27%;
+      padding: 10px;
+      margin-left: 10px;
+      background-color: #fff;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .port .btn-box .tour{
+      position: absolute;
+      top: 900%;
+      right: 23%;
+      padding: 10px;
+      margin-right: 10px;
+      background-color: #fff;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .port .txt{
+      position: absolute;
+      z-index: 9999;
+      top: 1050%;
+      left: 10%;
+      margin: 0 500px;
+    }
+
+    .port .txt1{
+      font-weight: 900;
+      font-size: 20px;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+
+
+    .contact img{
+      width: 40%;
+      height: 500px;
+      float: left;
+    }
+    
+
+    .text{
+      width: 50%;
+      height: 300px;
+      float: right;
+      padding-top: 170px;
+      font-size: 25px;
+    }
+
+  }
+
+
+
+
+
+    @keyframes html {
+      0%{
+        width: 0;
+      }
+
+      100%{
+        width: 85%;
+      }
+    }
+
+    @keyframes css {
+      0%{
+        width: 0;
+      }
+
+      100%{
+        width: 90%;
+      }
+    }
+
+    @keyframes java {
+      0%{
+        width: 0;
+      }
+
+      100%{
+        width: 80%;
+      }
+    }
+  </style>
+
+  <script>
+    $(document).ready(function($) {
+
+      $(".scroll_move").click(function(event){         
+
+        event.preventDefault();
+
+        $('html,body').animate({scrollTop:$(this.hash).offset().top}, 500);
+
+});
+
+});
+  </script>
+</head>
+<body>
+  <div class="wrap">
+    <div class="container clearfix">
+      <nav>
+        <ul>
+          <li><a href="#div1" id="scroll_move">HOME</a></li>
+          <li><a href="#div2" id="scroll_move">PROFILE</a></li>
+          <li><a href="#div3" id="scroll_move">SKILL</a></li>
+          <li><a href="#div4" id="scroll_move">PORTFOLIO</a></li>
+          <!-- <li><a href="#div5" id="scroll_move">CONTACT</a></li> -->
+        </ul>
+      </nav>
+      <div class="img-box">
+        <img src="./images/main01.jpg" alt="메인배경">
+      </div>
+      <div class="img-box1">
+        <img src="./images/sky.jpg" alt=T메인배경">
+      </div>
+      <div class="img-box2">
+        <img src="./images/main.jpg" alt=D메인배경">
+      </div>
+      <p class="top1">WEB Publisher
+        <br>
+        [ CHOI JIN SIK ]</p>
+      <p class="top2">"PORTFOLIO"
+        <br>
+        "VOL . 01"
+      </p>
+      <h1>
+        WEB
+        <br>
+        PUBLISHER!
+        <br>
+      </h1>
+    </div>
+
+    <div id="div2">
+    <section class="about clearfix">
+      <h2>PROFILE!</h2>
+      <img src="./images/about_me.jpg" alt="">
+      <div class="back"></div>
+      <p class="day">1995.01.18</p>
+      <p class="subp">
+        이름 : 최진식
+        <br>
+        <br>
+        나이 : 29세
+        <br>
+        <br>
+        수료내역 : 2023.03.16~2023.08.04
+        <br>인천IT직업능력개발학원
+        <br>
+        웹표준 반응형 웹디자인&웹퍼블리셔 양성과정 수료
+        <br>
+        <br>
+        <ul class="hash clearfix">
+          <li>#웹퍼블리셔</li>
+          <li>#HTML</li>
+          <li>#ENFP</li>
+          <li>#성실함</li>
+          <li>#반응형웹</li>
+          <li>#시멘틱웹</li>
+          <li>#알찬신입</li>
+          <li>#웹기획</li>
+        </ul>
+      </p>
+      <h2 class="abh2">PROFILE</h2>
+    </section>
+  </div>
+
+  <div id="div3">
+    <section class="cando">
+      <h2>My SKILL!</h2>
+      <img src="./images/icon-hcj.jpg" alt="hcj">
+      <h3>HTML</h3>
+      <div class="graph">
+        <span class="html">85%</span>
+      </div>
+      <h3>CSS</h3>
+      <div class="graph">
+        <span class="css">90%</span>
+      </div>
+      <h3>Java</h3>
+      <div class="graph">
+        <span class="java">80%</span>
+      </div>
+    </section>
+  </div>
+
+  <div id="div4">
+    <section class="port">
+      <h2>PORTFOLIO!</h2>
+      <div class="img-box02">
+        <div class="img-hana"><img src="./images/port01.PNG" alt="hana"></div>
+        <div class="img-tour"><img src="./images/port02.PNG" alt="tour"></div>
+      </div>
+
+    <div class="btn-box">
+      <button class="hana"><a href=" https://wnlsl8151.github.io/Hanaport/">하나성형외과 바로가기</a></button>
+      <button class="tour"><a href="https://wnlsl8151.github.io/tourlist/">투어리스트로 바로가기</a></button>
+    </div>
+    <div class="txt">
+      <h3 class="txt1">직접만든 포트폴리오!</h3>
+      <p class="txt2">
+      학원에서 직접 제작한 작업물이며,
+      css 및 javaScript를 활용하여,
+      기능적인 부분을 보안하였습니다.
+        <br>
+        <br>
+      <span>참여도 100%</span>
+      </p>
+    </div>
+    </section>
+  </div>
+
+  <div id="div5">
+    <section class="contact clearfix">
+      <h2>CONTACT!</h2>
+      <div class="last-img">
+        <img src="./images/d-main.jpg" alt="마지막이미지">
+      </div>
+      <div class="text">
+        <h3>"아름답고 화려한 디자인만을 만드는 것이 목표가 아닌,<br>
+        <strong>최적의 사용자 경험을 제공하는 것을 목표</strong>로 하는<br>웹 퍼블리셔, 최진식이 되겠습니다."
+      <br></h3>
+      <p>연락처 : wlstlrdl6664@naver.com,<br> 010 3443 5643</p>
+      </div>
+    </section>
+  </div>
+
+  
+    <footer class="footer">
+      <address>
+        본 페이지는 상업적 목적이 아닌 개인 포트폴리오용으로 제작되었습니다.
+        <br>
+        <p>
+        ⓒ 2023 Choi, Jin-Sik. All Rights Reseved.
+      </p>
+      </address>
+    </footer>
+  </div>
+</body>
+</html>
